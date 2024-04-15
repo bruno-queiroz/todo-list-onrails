@@ -1,0 +1,9 @@
+<h1>Todos</h1>
+
+<ul>
+    <% @todos.each do |todo| %>
+        <li>
+            <input type="checkbox"> <%= todo.task %> </input>
+        </li>
+    <% end %>
+</ul>

@@ -3,7 +3,9 @@
 <ul>
     <% @todos.each do |todo| %>
         <li>
-            <input type="checkbox"> <%= todo.task %> </input>
+            <input type="checkbox">
+                <%= link_to todo.task, todo %>
+            </input>
         </li>
     <% end %>
 </ul>

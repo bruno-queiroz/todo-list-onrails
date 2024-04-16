@@ -1,3 +1,5 @@
+<%= turbo_include_tags %>
+
 <h1>Todos</h1>
 
 <ul>
@@ -5,8 +7,12 @@
         <li>
             <input type="checkbox">
                 <%= link_to todo.task, todo %>
-                <%= link_to "Edit", edit_todo_path(todo) %>
             </input>
+            <%= link_to "Edit", edit_todo_path(todo) %>
+            <%= link_to "Delete", todo_path(todo), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                } %>
         </li>
     <% end %>
 </ul>

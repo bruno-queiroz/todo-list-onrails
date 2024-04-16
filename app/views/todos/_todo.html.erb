@@ -1,0 +1,16 @@
+<li class="flex items-center gap-2 w-full">
+    <input type="checkbox">
+        <%= link_to todo.task, todo %>
+    </input>
+    <div class="ml-auto">
+        <%= link_to "Edit", edit_todo_path(todo),
+            class: "px-2 py-1 rounded bg-green-400" 
+        %>
+        <%= link_to "Delete", todo_path(todo),
+            class: "px-2 py-1 rounded bg-red-400 text-white",
+            data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+            } %>
+    </div>
+</li>

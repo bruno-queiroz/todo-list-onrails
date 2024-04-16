@@ -1,2 +1,8 @@
+<%= turbo_include_tags %>
+
 <h1>Todo id #<%= @todo.id %> </h1>
 <input type="checkbox"><%= @todo.task %></input>
+<%= link_to "Delete", todo_path(@todo), data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+} %>

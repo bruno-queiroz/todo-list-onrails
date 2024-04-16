@@ -5,6 +5,7 @@
         <li>
             <input type="checkbox">
                 <%= link_to todo.task, todo %>
+                <%= link_to "Edit", edit_todo_path(todo) %>
             </input>
         </li>
     <% end %>

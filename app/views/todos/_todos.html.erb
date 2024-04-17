@@ -1,0 +1,7 @@
+<div class="flex gap-4 flex-col bg-gray-100 p-4 rounded w-[80%] mx-auto" id="todo-list-wrapper">
+    <ul class="flex flex-col gap-3" id="todo-list">
+        <% todos.each do |todo| %>
+            <%= render todo %>
+        <% end %>
+    </ul>
+</div>

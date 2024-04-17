@@ -15,7 +15,10 @@ class TodosController < ApplicationController
         @todo = Todo.new(todo_params)
 
         if @todo.save
-            redirect_to @todo
+            respond_to do |format|
+                format.turbo_stream
+                format.html {redirect_to @todo}
+            end 
         else
             render :new, status: :unprocessable_entity
         end

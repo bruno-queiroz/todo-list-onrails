@@ -2,8 +2,10 @@
 
 <h1 class="text-4xl font-semibold text-center mb-4">Todos</h1>
 
+<%= render "form", todo: Todo.new %>
+
 <div class="flex gap-4 flex-col bg-gray-100 p-4 rounded w-[80%] mx-auto">
-    <ul class="flex flex-col gap-2">
+    <ul class="flex flex-col gap-3" id="todo-list">
         <% @todos.each do |todo| %>
             <%= render todo %>
         <% end %>

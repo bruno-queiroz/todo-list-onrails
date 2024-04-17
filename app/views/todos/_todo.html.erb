@@ -1,6 +1,6 @@
-<li class="flex items-center gap-2 w-full">
-    <input type="checkbox">
-        <%= link_to todo.task, todo %>
+<li class="flex items-center gap-2 w-full" id="#{dom_id(todo)}_item">
+    <input type="checkbox" <%= "checked" if todo.is_done? %>>
+        <%= button_to todo.task, todo_path(todo, todo: {task: todo.task, "is_done": !todo.is_done}), method: :patch, class: "#{"line-through" if todo.is_done?}" %>
     </input>
     <div class="ml-auto">
         <%= link_to "Edit", edit_todo_path(todo),

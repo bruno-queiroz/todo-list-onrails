@@ -32,13 +32,17 @@ class TodosController < ApplicationController
     end
 
     def update 
-        @todo = Todo.new(todo_params)
+        @todo = Todo.find(params[:id])
 
-        if @todo.save
-            redirect_to @todo
-        else
-            render :new, status: :unprocessable_entity
+        respond_to do |format|
+            if @todo.update(todo_params)
+                format.turbo_stream
+                format.html {redirect_to @todo}
+            else
+                format.html {render :new, status: :unprocessable_entity}
+            end
         end
+
     end
 
     def destroy
@@ -50,6 +54,6 @@ class TodosController < ApplicationController
 
     private
         def todo_params
-            params.require(:todo).permit(:task)
+            params.require(:todo).permit(:task, :is_done)
         end
 end

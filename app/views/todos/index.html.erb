@@ -4,12 +4,6 @@
 
 <%= render "form", todo: Todo.new %>
 
-<div class="flex gap-4 flex-col bg-gray-100 p-4 rounded w-[80%] mx-auto">
-    <ul class="flex flex-col gap-3" id="todo-list">
-        <% @todos.each do |todo| %>
-            <%= render todo %>
-        <% end %>
-    </ul>
-</div>
+<%= render "todos", todos: @todos %>
 
 <%= link_to "Create Todo", new_todo_path(@todo), class: "block w-[80%] mx-auto py-2 px-4 bg-blue-400 rounded mt-4 text-center text-white" %>
